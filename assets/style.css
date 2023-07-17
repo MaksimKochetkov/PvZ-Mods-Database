@@ -1,0 +1,332 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+	font-weight: inherit;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+
+
+
+
+/* Фильтр*/
+.ff-container input {
+    display: none;
+  }
+  
+  .ff-container label {
+    min-height: 50px;
+    cursor: pointer;
+    color: #777;
+    font-size: 24px;
+    padding: 0 20px 30px 20px;
+  }
+  
+  .ff-container input.ff-all:checked~.card{
+    min-width: 350px;
+    transform: scale(1, 1);
+    transition: transform 0.3s linear;
+  }
+  
+  .grid {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .filter, .ff-items {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .filter-controls{
+    display: flex;
+    justify-content: center;
+    
+  }
+  .ff-items {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .card{
+    height: 30em;
+    text-align: justify; 
+    line-height: 1.5;
+    background-color: #121212;
+    padding: 20px 20px 20px 20px;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10%;
+  }
+  
+  .card-img {
+    border-radius: 3em;
+    max-width: 100%;
+    padding: 0px 20px;
+    object-fit: cover;
+    width: 400px;
+  }
+  
+  .mod-name {
+    color: #219fa3;
+    font-family: fb;
+    font-size: 2.5em;
+  }
+  .mod-diff {
+    font-family: pico;
+    color: aquamarine;
+  }
+  .short-descr {
+    font-family: bruh;
+    font-size: 1.1em;
+    color: #62BE5C;
+  }
+  .mod-author {
+    color: #21bb63;
+    font-size: 0.9em;
+    font-family: ashley;
+  }
+  
+  [value="all"]:checked~.grid .card[data-category]{
+    display: block;
+    animation: ALL 0.4s;
+  }
+  [value="ez"]:checked~.grid .card[data-category~="ez"],
+  [value="med"]:checked~.grid .card[data-category~="med"],
+  [value="hrd"]:checked~.grid .card[data-category~="hrd"],
+  [value="imp"]:checked~.grid .card[data-category~="imp"]{
+    animation: ALL 0.4s;
+  }
+  [value="ez"]:checked~.grid .card:not([data-category~="ez"]),
+  [value="med"]:checked~.grid .card:not([data-category~="med"]),
+  [value="hrd"]:checked~.grid .card:not([data-category~="hrd"]),
+  [value="imp"]:checked~.grid .card:not([data-category~="imp"]){
+    animation: OUT 0.5s;
+    opacity: 0;
+    order: 1;
+    position: absolute;
+    /* animation-fill-mode: forwards; */
+  }
+  @keyframes ALL {
+    0%{
+     opacity: 0%;
+     transform: rotate3d(0, 1, 0, 90deg);
+    }
+    35%{
+      opacity: 35%;
+      transform: rotate3d(0, 1, 0, 180deg);
+    }
+    70%{
+      opacity: 75%;
+      transform: rotate3d(0, 1, 0, 270deg);
+    }
+    100%{
+      opacity: 100%;
+      transform: rotate3d(0, 1, 0, 360deg);
+    }
+  
+  }
+  
+  @keyframes OUT {
+    0%{
+      opacity: 50%;
+      transform: scale(0.5);
+    }
+    50%{
+      opacity: 30%;
+      transform: scale(0.25);
+    }
+    100%{
+      opacity: 0%;
+      transform: scale(0);
+    }
+  }
+  @keyframes RGB {
+    0%{
+      color: red;
+    }
+    25% {
+      color: green;
+    }
+    50%{
+      color: blue;
+    }
+    75% {
+      color: magenta;
+    }
+    100%{
+      color: red;
+    }
+  }
+  .slider-img img{
+    width: 70%;
+    
+    margin: 0 auto;
+    margin-top: 5vh;
+  }
+  .slider-img{
+    width: 60%;
+    margin: 0 auto;
+  }
+  @media only screen and (min-width : 240px) and (max-width : 299px) {
+    .slider-img img{
+      width: 95%;
+      margin-left: 2vw;
+    }
+    .slider-img{
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 20vh;
+    }
+  }
+  @media only screen and (min-width : 375px) and (max-width : 767px) {
+    .slider-img img{
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 5vh;
+    }
+    .slider-img{
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+  @media only screen and (min-width : 300px) and (max-width : 374px) {
+    .slider-img img{
+      width: 95%;
+      margin-left: 2vw;
+    }
+    .slider-img{
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 5vh;
+    }
+  }
+
+  header {
+    width: 100%;
+    height: 5em;
+    background: linear-gradient(rgba(28, 153, 0, 0.7) 0%, rgba(0, 223, 78, 0) 100%);
+}
+
+@font-face {
+    font-family: HOT;
+    src: url(fonts/HOUSE_OF_TERROR.ttf);
+}
+@font-face {
+    font-family: bruh;
+    src: url(fonts/BRIANNETOD.ttf);
+}
+@font-face {
+    font-family: fb;
+    src: url(fonts/FBUSV8C5EI.ttf);
+}
+@font-face {
+    font-family: ashley;
+    src: url(fonts/ASHLEYSCRIPTMTSTD.ttf);
+}
+@font-face {
+    font-family: pico;
+    src: url(fonts/PICO12.ttf);
+}
+
+label {
+    font-family: bruh;
+}
+
+h1 {
+    font-family: HOT;
+    font-size: 3em;
+    text-align: center;
+    color: #62BE5C;
+}
+html, .filter, .grid {
+    /* background-image: url(img/OldStyleGuideBackgrounds.webp); */
+    
+    background-color: #060A30;
+}
